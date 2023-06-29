@@ -40,7 +40,7 @@ resource "aws_instance" "node" {
    }
    monitoring = false
    
-  user_data = file("${path.root}/ec2/userdata.tpl")
+  user_data = data.cloudinit_config.user_data.rendered
 
 
   root_block_device {
